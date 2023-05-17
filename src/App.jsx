@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CharacterRandom from './components/CharacterRandom'
 import ResidentInfo from './components/ResidentInfo'
+import logosvg from '../public/logo.svg'
 import './App.css'
 
 function App() {
@@ -33,7 +34,7 @@ console.log(characterCard, 'ya llegue')
   return (
     <div className='app'>
       <header className='header'>
-        <img src="../public/logo.svg" alt=""  className='logo'/>
+        <img src={logosvg} alt=""  className='logo'/>
       </header>
       <main className='main'>
         
