@@ -1,5 +1,5 @@
 import React from 'react';
-import '../components/characterrandom.css'
+import './characterrandom.css'
 
 const CharacterRandom = ({ randomCharacter }) => {
 
