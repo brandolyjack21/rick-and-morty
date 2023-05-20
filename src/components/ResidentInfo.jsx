@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './residentinfo.css'
+import './residentInfo.css'
 
 const ResidentInfo = ({ api }) => {
     const [character, setCharacter] = useState()
