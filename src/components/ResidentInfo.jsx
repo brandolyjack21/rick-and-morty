@@ -1,27 +1,30 @@
 import React from 'react';
-import '../components/residentInfo.css'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import '../components/residentinfo.css'
 
-const ResidentInfo = ({ characters }) => {
-    console.log(characters)
+const ResidentInfo = ({ api }) => {
+    const [character, setCharacter] = useState()
+
+    useEffect(() => {
+      axios.get(api)
+           .then(res => setCharacter(res.data))
+           .catch(error => console.error(error))
+    },[])
+    console.log(character,'character')
     return (
-        <div>
-            <ul className='container__charactersCards'>
-                {
-                  characters?.map( character => (
-                     <li key={character.id} className='card'>
-                       <img src={character.image} alt="" />
-                       <div className='container__card'>
-                         <h1>{character.name}</h1>
-                         <div className='live'>{character.status}
-                         <div className='circule__status'></div>
-                         </div>
-                         <p>Origen: {character.origin?.name}</p>
-                         <p>Apariciones: {character.episode?.length}</p>
-                       </div>
-                     </li>
-                  ))
-                }
-            </ul>
+        <div className='container__charactersCards'>
+           <div key={character?.id} className='card'>
+             <img src={character?.image} alt="" />
+             <div className='container__card'>
+               <h1 className='h1-card'>{character?.name}</h1>
+               <div className='live'>{character?.status}
+               <div className='circule__status'></div>
+               </div>
+                <p>Origen: {character?.origin?.name}</p>
+               <p>Apariciones: {character?.episode.length}</p> 
+             </div>
+           </div>
         </div>
     );
 };

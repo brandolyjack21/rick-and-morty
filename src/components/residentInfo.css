@@ -7,14 +7,11 @@
     padding: 0;
 }
 
-.card img{
-    width: 230px;
-    height: 200px;
-}
 
-h1{
+
+.h1-card{
     padding: 5px;
-    font-size: 22px;
+    font-size: 18px;
     font-family: 'IBM Plex Serif', serif;
 }
 
@@ -26,42 +23,15 @@ p{
     font-family: 'Roboto Mono', monospace;
 }
 
-.container__charactersCards{
-    width: 100vw;
-    max-width: 1060px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    color: white;
-    margin: 50px auto;
-    margin-bottom: 0;
-    padding-bottom: 40px;
-}
-
-.card{
-    position: relative;
-    width: 250px;
-    height: 350px;
-    background-color: rgba(0, 0, 0, 0.686);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding-top: 7px;
-    border: 2px solid greenyellow;
-    box-shadow: 0 0 20px white;
-    transition: all 0.5s;
-}
-
-.card:hover{
-    box-shadow: 0 0 30px #72bf00;
-}
-
 .container__card{
     width: 230px;
     padding-left: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 

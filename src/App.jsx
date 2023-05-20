@@ -9,8 +9,8 @@ function App() {
   const [randomCharacter, setRandomCharacter] = useState({})
   const [characterCard, setCharacterCard] = useState({})
   const [characters, setCharacters] = useState([])
-  const [characterName, setCharacterName] = useState('')
-  console.log(characterName, 'lololololo');
+  const [characterLocation, setCharacterLocation] = useState('')
+  console.log(characterLocation, 'lololololo');
 
  useEffect(() => {
   axios.get(`https://rickandmortyapi.com/api/location/${Math.floor(Math.random() * 126)}`)
@@ -20,17 +20,13 @@ function App() {
 
 useEffect(() => {
   charactersInfo()
-},[])
+},[characterLocation])
 
 const charactersInfo = () => {
-    axios.get(`https://rickandmortyapi.com/api/character/?name=${characterName}`)
-       .then(res => setCharacters(res.data.results))
+    axios.get(`https://rickandmortyapi.com/api/location/${characterLocation}`)
+       .then(res => setRandomCharacter(res.data))
        .catch(error  => console.error(error))
-
 }
-
-
-console.log(characterCard, 'ya llegue')
   return (
     <div className='app'>
       <header className='header'>
@@ -44,20 +40,28 @@ console.log(characterCard, 'ya llegue')
         
         <div className='buscador'>
           <input type="text" 
-          placeholder='buscar personaje...'
+          placeholder='buscar...'
           className='input--search'
-          value={characterName}
-          onChange={e => setCharacterName(e.target.value)}
+          value={characterLocation}
+          onChange={e => setCharacterLocation(e.target.value)}
           />
           <button 
           className='search'
           onClick={() => charactersInfo()}
           >Search</button>
         </div>
+
+        <ul className='container-cards'>
+          { randomCharacter.residents?.map(api => (
+            <li className='cards-style'>
+              <ResidentInfo
+            api={api}
+            />
+            </li>
+          )) }
+        </ul> 
         
-        <ResidentInfo
-        characters={characters}
-        />
+        
       </main>
     </div>
   )

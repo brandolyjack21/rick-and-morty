@@ -94,3 +94,41 @@ button, input{
     transition: all .1s;
   }
 }
+
+.container-cards{
+  width: 100vw;
+    max-width: 1060px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    margin: 50px auto;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+}
+
+.cards-style img{
+  width: 230px;
+  height: 200px;
+}
+
+.cards-style{
+    position: relative;
+    width: 250px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.686);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding-top: 7px;
+    border: 2px solid greenyellow;
+    box-shadow: 0 0 20px white;
+    transition: all 0.5s;
+}
+
+.cards-style:hover{
+  box-shadow: 0 0 30px #72bf00;
+}
